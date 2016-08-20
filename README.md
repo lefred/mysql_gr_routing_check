@@ -55,3 +55,10 @@ Usage example::
     Connection closed by foreign host.
 
 
+**Don't forget that you need some addition to sys schema. These are not yet released in the default sys schema**
+
+To install the missing functions and views, please import ```addition_to_sys.sql```:
+
+    mysql < addition_to_sys.sql 
+
+
