@@ -71,8 +71,6 @@ sys.gr_member_in_primary_partition() as viable_candidate,
 IF( (SELECT (SELECT GROUP_CONCAT(variable_value) FROM
 performance_schema.global_variables WHERE variable_name IN ('read_only',
 'super_read_only')) != 'OFF,OFF'), 'YES', 'NO') as read_only,
-sys.gr_applier_queue_length() as transactions_behind$$
-
-
+sys.gr_applier_queue_length() as transactions_behind, Count_Transactions_in_queue as 'transactions_to_cert' from performance_schema.replication_group_member_stats;$$
 
 DELIMITER ;
